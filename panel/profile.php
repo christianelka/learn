@@ -15,11 +15,7 @@ if(isset($_POST['update'])){
     // menyiapkan query
     $query = "UPDATE users SET fname='$fname', email='$email', nim='$nim' WHERE username='$username'";
     mysqli_query($db, $query);
-<<<<<<< HEAD
   header("Refresh: 0;url='../logout.php'");
-=======
-  header("Refresh: 0;url='logout.php'");
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 }
 
  ?>
@@ -62,30 +58,17 @@ if(isset($_POST['update'])){
                       <a class="nav-link" href="history.php">History Training</a>
                   </li>
                   <li class="nav-item">
-<<<<<<< HEAD
                       <a class="nav-link" href="progress.php">Progress</a>
-=======
-                      <a class="nav-link" href="#">Progress</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </li>
               </ul>
               <ul class="navbar-nav">
                 <!-- Dropdown -->
-<<<<<<< HEAD
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     Christian Anelka Manik
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="profile.php">Edit Profile</a>
-=======
-                <li class="nav-item dropdown ml-auto">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <?php echo $_SESSION["fname"] ?>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Edit Profile</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                     <a class="dropdown-item" href="../logout.php">Logout</a>
                   </div>
                 </li>

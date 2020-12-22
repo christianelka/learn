@@ -66,11 +66,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["email"]    = $email;
                             $_SESSION["fname"]    = $fname;
                             $_SESSION["nim"]      = $nim;
-<<<<<<< HEAD
                             // $_SESSION["user"] = $user;
                             // $_SESSION["NIM"] = $NIM;
-=======
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                             
                             // Redirect user to welcome page
                             header("location: panel/index.php");
@@ -88,20 +85,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
 
             // Close statement
-<<<<<<< HEAD
             // mysqli_stmt_close($stmt);
-=======
-            mysqli_stmt_close($stmt);
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
         }
     }
     
     // Close connection
-<<<<<<< HEAD
     // mysqli_close($mysqli);
-=======
-    mysqli_close($mysqli);
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 }
 ?>
 <!DOCTYPE html>

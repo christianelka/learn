@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// Sumber : https://github.com/petanikode/php-login-register
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 date_default_timezone_set('Asia/Jakarta');
 $db_host = "localhost";
 $db_user = "root";

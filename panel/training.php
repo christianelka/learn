@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
   ob_start();
   require_once("../auth.php");
@@ -73,9 +72,6 @@ if(isset($_POST['mulai'])){
   //header("Refresh:0;url='http://localhost/learn/panel/training.php'");
 ?>
 <!DOCTYPE html>
-=======
-<!DOCTYPE php>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 <php lang="en">
 <head>
   <title>Learn Online</title>
@@ -86,13 +82,8 @@ if(isset($_POST['mulai'])){
   <script src="../assets/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <style>
   @media screen and (max-width: 1200px) {
-<<<<<<< HEAD
   .content{
       margin-top: 55px;
-=======
-    .alert{
-      margin-top: 75px;
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
     }
   }
   .footer {
@@ -124,60 +115,34 @@ if(isset($_POST['mulai'])){
                       <a class="nav-link" href="history.php">History Training</a>
                   </li>
                   <li class="nav-item">
-<<<<<<< HEAD
                       <a class="nav-link" href="progress.php">Progress</a>
-=======
-                      <a class="nav-link" href="#">Progress</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </li>
               </ul>
               <ul class="navbar-nav">
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-<<<<<<< HEAD
                     <?php echo $_SESSION['fname'] ?>
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="profile.php">Edit Profile</a>
                     <a class="dropdown-item" href="../logout.php">Logout</a>
-=======
-                    Christian Anelka Manik
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Log</a>
-                    <a class="dropdown-item" href="#">Logout</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </div>
                 </li>
               </ul>
           </div>
       </nav>
       <!-- Content -->
-<<<<<<< HEAD
       <div class="content">
       <div class="col-lg-20" style="margin-top:4%; width: 100%;">
           <div class="card-header bg-white text-primary rounded b">
-=======
-      <div class="col-lg-20" style="margin-top:7%; width: 100%;">
-          <div class="alert bg-white text-primary">
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
               Reading Comprehension
           </div>
           <div class="card mb-3 shadow rounded">
                 <div class="card-group" style="width:100%">
                   <div class="card-body">
-<<<<<<< HEAD
                     <?php echo "<p>" .nl2br($Text). "</p>"; ?>
                     <?php echo "<p>" ."ID TEXT $id ". $last_id . " (" .$level. ")</p>"; ?>                 
-=======
-                    <h2 style="text-align: center;">Text Level High</h2>
-                    <p class="text-justify">&nbsp&nbsp&nbsp&nbspAmbitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
-                    <p class="text-justify">&nbsp&nbsp&nbsp&nbspAmbitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
-                    <p class="text-justify">&nbsp&nbsp&nbsp&nbspAmbitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
-                    <p class="text-justify">&nbsp&nbsp&nbsp&nbspAmbitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </div>
         </div>
         </div>
@@ -188,7 +153,6 @@ if(isset($_POST['mulai'])){
               <div class="card-group" style="width:100%">
               <div class="card-body">
               <div class="form-group">
-<<<<<<< HEAD
                 <form action="" method="POST">
                   <label for="comments">Comment:</label>
                   <textarea name="comment" class="form-control" rows="5" id="comment" required></textarea>
@@ -197,19 +161,11 @@ if(isset($_POST['mulai'])){
                   </div>
                   <p><button type="submit" class="btn btn-dark" name="GO">Cek Ringkasan </button>
                 </form>
-=======
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
-              </div>
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
-                  Check Result </button>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
               </div>
           </div>
         </div>
       </div>
   </div>
-<<<<<<< HEAD
   </div>
   </div>
 </body>
@@ -326,33 +282,6 @@ if(isset($_POST['mulai'])){
       </div>
   </div>
   </div>
-=======
-  <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Your Score</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            Your Score is 86
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
   </div>
 </body>
 <footer class="page-footer font-small blue fixed">
@@ -365,12 +294,9 @@ if(isset($_POST['mulai'])){
 
 </footer>
 </php>
-<<<<<<< HEAD
 <?php
 }  
 
 ob_end_flush();
 unset($_POST['GO']);  
 ?>
-=======
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae

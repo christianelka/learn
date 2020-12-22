@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 // Initialize the session
 session_start();
@@ -76,70 +75,6 @@ require_once "../config.php";
 </head>
 <body>
 
-=======
-
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
-<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>Learn Online</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../assets/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="../assets/css/style.css">
-<script src="../assets/jquery/jquery.min.js"></script>
-<script src="../assets/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<style>
-@media screen and (max-width: 1200px) {
-  container{
-    margin-top: 75px;
-  }
-}
-.highcharts-figure, .highcharts-data-table table {
-  min-width: 310px;
-  max-width: 800px;
-  margin: 1em auto;
-}
-
-#container {
-  height: 400px;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-  padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-  padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-  background: #f1f7ff;
-}
-</style>
-</head>
-<body translate="no">
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
   <div id="app" class="container">
       <nav class="navbar navbar-expand-md navbar-light shadow bg-white fixed-top">
           <a class="navbar-brand" href="index.php">Learning Online</a>
@@ -148,13 +83,8 @@ require_once "../config.php";
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav mr-auto">
-<<<<<<< HEAD
                   <li class="nav-item active">
                       <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-=======
-                  <li class="nav-item">
-                      <a class="nav-link" href="index.php">Home</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="training.php">Training</a>
@@ -162,39 +92,25 @@ require_once "../config.php";
                   <li class="nav-item">
                       <a class="nav-link" href="history.php">History Training</a>
                   </li>
-<<<<<<< HEAD
                   <li class="nav-item">
                       <a class="nav-link" href="progress.php">Progress</a>
-=======
-                  <li class="nav-item active">
-                      <a class="nav-link" href="progress.php">Progress<span class="sr-only">(current)</span></a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </li>
               </ul>
               <ul class="navbar-nav">
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-<<<<<<< HEAD
                     <?php echo $_SESSION["fname"] ?>
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="profile.php">Edit Profile</a>
                     <a class="dropdown-item" href="../logout.php">Logout</a>
-=======
-                    Christian Anelka Manik
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Logout</a>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
                   </div>
                 </li>
               </ul>
           </div>
       </nav>
       <!-- Content -->
-<<<<<<< HEAD
       <div class="content">
         <div class="col-md-25" style="margin-top:7%">
             <?php
@@ -360,65 +276,6 @@ require_once "../config.php";
     </div>
   </div>
 </body>
-=======
-      <div class="col-md-25" style="margin-top:7%">
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<figure class="highcharts-figure">
-<div id="container"></div>
-<p class="highcharts-description">
-Chart showing stacked horizontal bars. This type of visualization is
-great for comparing data that accumulates up to a sum.
-</p>
-</figure>
-<script id="rendered-js">
-Highcharts.chart('container', {
-  chart: {
-    type: 'bar'
-  },
-  title: {
-    text: "Christian Anelka's Progress Bar"
-  },
-  legend: {
-    	enabled: false
-  },
-  xAxis: {
-    categories: ['Easy', 'Medium', 'Hard']
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: 'Total Quest'
-    }
-  },
-  legend: {
-    reversed: true
-  },
-  plotOptions: {
-    series: {
-      stacking: 'normal'
-    }
-  },
-  series: [{
-    name: 'Undone',
-    data: [15, 12, 10],
-    color: 'gray'
-  }, {
-    name: 'Failed',
-    data: [4, 1, 9],
-    color: '#dc3545'
-  }, {
-    name: 'Success',
-    data: [6, 7, 11],
-    color: '#28a745'
-  }]
-});
-    </script>
-</body>
-<div class="footer">
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 <footer class="page-footer font-small blue fixed">
 
   <!-- Copyright -->
@@ -428,8 +285,4 @@ Highcharts.chart('container', {
   <!-- Copyright -->
 
 </footer>
-<<<<<<< HEAD
-=======
-</div>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 </html>

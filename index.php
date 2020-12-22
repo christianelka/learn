@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
@@ -10,8 +9,6 @@ if(isset($_SESSION["user"]) && $_SESSION["user"] === true){
 require_once "config.php";
 
 ?>
-=======
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +26,9 @@ require_once "config.php";
     <!-- <div class="card-header bg-white text-black shadow">
         Learning Online
     </div><br> -->
-<<<<<<< HEAD
     <br><br>
     <div class="card mb-3 shadow-lg rounded">
     <div class="card-group" style="width:100%"><br>
-=======
-    <br><br><div class="card-group shadow-lg" style="width:100%"><br>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
     <img class="card-img-top" src="assets/img/Index_BG.png" alt="Card image" style="width:55%; padding:6%;">
       <div class="card-body">
         <br><h9>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h9>
@@ -47,21 +40,14 @@ require_once "config.php";
         <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
-<<<<<<< HEAD
         <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.<br></p>
-=======
-        <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
         <br><a href="login.php" type="submit" class="btn btn-success">Login</a>
         <a href="register.php" type="submit" class="btn btn-primary">Register</a>
       </div>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
-=======
->>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
 </body>
 <div class="footer">
 <footer class="page-footer font-small blue fixed">
