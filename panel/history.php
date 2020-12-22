@@ -74,24 +74,25 @@ require_once "../config.php";
               <div class="row" style="margin-top:7%">
                 <?php
                 $username = $_SESSION['username'];
-                $query = "SELECT hasil.latihan_ke, hasil.tanggal, hasil.nilai, hasil.status, hasil.id_soal, hasil.waktu_mulai, hasil.user_summary, raw_data.level, raw_data.id_soal FROM hasil INNER JOIN history ON hasil.id = history.id_hasil INNER JOIN raw_data ON history.id_soal = raw_data.id_soal WHERE hasil.username = '$username' ORDER BY hasil.latihan_ke DESC";
+                $query = "SELECT hasil.latihan_ke, hasil.tanggal, hasil.nilai, hasil.status, hasil.id_soal, hasil.waktu_mulai, hasil.waktu_selesai, hasil.user_summary, raw_data.level, raw_data.id_soal FROM hasil INNER JOIN history ON hasil.id = history.id_hasil INNER JOIN raw_data ON history.id_soal = raw_data.id_soal WHERE hasil.username = '$username' ORDER BY hasil.latihan_ke DESC";
                 $result = $mysqli->query($query);
                 if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                 ?>
                 <?php
-                $waktu = $row['waktu_mulai'];
+                $mulai    = strtotime($row['waktu_mulai']);
+                $selesai  = strtotime($row['waktu_selesai']);
+                $selisih = $selesai - $mulai;
+                $menit   = floor($selisih / (60));
+                $detik = $selisih - $menit * (60);
 
-                $menit   = floor($waktu / (60));
-                $detik = $waktu - $menit * (60);
-
-                if (0 < $waktu AND $waktu <= 240 ) {
+                if (0 < $selisih AND $selisih <= 240 ) {
                   $kode_waktu = 'A';
-                }elseif (241 <= $waktu AND $waktu <= 420) {
+                }elseif (241 <= $selisih AND $selisih <= 420) {
                   $kode_waktu = 'B';
-                }elseif (421 <= $waktu AND $waktu <= 600) {
+                }elseif (421 <= $selisih AND $selisih <= 600) {
                   $kode_waktu = 'C';
-                }elseif (601 <= $waktu AND $waktu <= 720) {
+                }elseif (601 <= $selisih AND $selisih <= 720) {
                   $kode_waktu = 'D';
                 } else {
                   $kode_waktu = 'E';
@@ -120,13 +121,13 @@ require_once "../config.php";
                   <div class="col-lg-12 col-sm-6" >
                     <div class="card">
                         <div class="card-header">
-                            <h7 class="title text-danger"><?php echo $row['latihan_ke'];?> | <?php echo $row['tanggal'];?></h7>
+                            <h7 class="title text-danger">Latihan ke-<?php echo $row['latihan_ke'];?> | <?php echo $row['tanggal'];?></h7>
                             <u><h7 class="title text-danger" style="float: right;"><?php echo $row['status'];?></h7></u>
                         </div>
 
                         <div class="card-body">
                             <span class="text-danger">Kode Soal : <?php echo $row['id_soal'];?> (<?php echo $row['level'];?>)</span>
-                            <span class="text-danger" style="float: right;">Lama Pengerjaan : <?php echo $menit .  ' menit ' . floor( $detik ) . ' detik' . ' (' . $kode_waktu . ')'; ?></span>
+                            <span class="text-danger" style="float: right;">Lama Pengerjaan : <?php echo $menit .  ' menit ' . floor($detik) . ' detik' . ' (' . $kode_waktu . ')'; ?></span>
                             <p align="justify"> </p>
                             <div class="alert alert-danger alert-with-icon" data-notify="container">                      
                                 <span data-notify="icon" class="fa fa-info-circle"></span>
@@ -141,13 +142,13 @@ require_once "../config.php";
                   <div class="col-lg-12 col-sm-6" >
                     <div class="card">
                         <div class="card-header">
-                            <h7 class="title text-success"><?php echo $row['latihan_ke'];?> | <?php echo $row['tanggal'];?></h7>
+                            <h7 class="title text-success">Latihan ke-<?php echo $row['latihan_ke'];?> | <?php echo $row['tanggal'];?></h7>
                             <u><h7 class="title text-success" style="float: right;"><?php echo $row['status'];?></h7></u>
                         </div>
 
                         <div class="card-body">
                             <span class="text-success">Kode Soal : <?php echo $row['id_soal'];?> (<?php echo $row['level'];?>)</span>
-                            <span class="text-success" style="float: right;">Lama Pengerjaan : <?php echo $menit .  ' menit ' . floor( $detik ) . ' detik' . ' (' . $kode_waktu . ')'; ?></span>
+                            <span class="text-success" style="float: right;">Lama Pengerjaan : <?php echo $menit .  ' menit ' . floor($detik) . ' detik' . ' (' . $kode_waktu . ')'; ?></span>
                             <p align="justify"> </p>
                             <div class="alert alert-success alert-with-icon" data-notify="container">                      
                                 <span data-notify="icon" class="fa fa-info-circle"></span>
