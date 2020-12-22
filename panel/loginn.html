@@ -1,0 +1,87 @@
+<?php 
+
+require_once("config.php");
+
+if(isset($_POST['login'])){
+
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    $sql = "SELECT * FROM users WHERE username=:username OR email=:email";
+    $stmt = $db->prepare($sql);
+    
+    // bind parameter ke query
+    $params = array(
+        ":username" => $username,
+        ":email" => $username
+    );
+
+    $stmt->execute($params);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // jika user terdaftar
+    if($user){
+        // verifikasi password
+        if(password_verify($password, $user["password"])){
+            // buat Session
+            session_start();
+            $_SESSION["user"] = $user;
+      $_SESSION["username"] = $username;
+            // login sukses, alihkan ke halaman timeline
+            echo '<div class="alert alert-success">Login Success </div>';
+            header("Location: panel/index.php");
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Learn Online</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/jquery/jquery.min.js"></script>
+  <script src="assets/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+  <div class="col-md-15" style="margin-top:2%">
+    <p>&nbsp<u><a href="index.php">Home</a></u></p>
+    <div class="alert alert-primary shadow-sm alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Login With Your Account!
+    </div>
+    <div class="card-group shadow-lg" style="width:100%"><br>
+    <img class="card-img-top" src="assets/img/Index_BG.png" alt="Card image" style="width:55%; padding:6%;">
+      <div class="card-body">
+      <br><h2>Login</h2>
+      <form action="" method="POST">
+        <div class="form-group">
+          <label for="usr">Username / Email:</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+        <input type="submit" class="btn btn-danger" name="login" value="Login"></input>
+        <a href="register.php" type="submit" class="btn btn-primary">Register</a>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<footer class="page-footer font-small blue fixed">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://ptik.fkip.uns.ac.id/"> Pendidikan TIK UNS / 2019</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</html>

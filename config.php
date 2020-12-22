@@ -1,0 +1,24 @@
+<?php
+<<<<<<< HEAD
+=======
+// Sumber : https://github.com/petanikode/php-login-register
+>>>>>>> d989c76403594ef72c3d19e9f119451a3039b9ae
+date_default_timezone_set('Asia/Jakarta');
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "learn";
+
+try {    
+    //create PDO connection 
+    $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+} catch(PDOException $e) {
+    //show error
+    die("ERROR: Could not connect. " . $e->getMessage());
+}
+
+$mysqli = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
