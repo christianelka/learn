@@ -47,6 +47,7 @@ if(isset($_POST['mulai'])){
       $_SESSION["id"] = rand(1,$num_rows);
     }
     $id = $_SESSION["id"];
+    // var_dump($id);
     // echo $id;
     $query_2 = "SELECT isi_soal, level FROM raw_data WHERE id_soal = $id";
     $result_2 = mysqli_query($mysqli, $query_2);
@@ -142,7 +143,7 @@ if(isset($_POST['mulai'])){
                 <div class="card-group" style="width:100%">
                   <div class="card-body">
                     <?php echo "<p>" .nl2br($Text). "</p>"; ?>
-                    <?php echo "<p>" ."ID TEXT $id ". $last_id . " (" .$level. ")</p>"; ?>                 
+                    <?php echo "<p>" ."ID TEXT $id ". " (" .$level. ")</p>"; ?>
                   </div>
         </div>
         </div>
