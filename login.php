@@ -1,18 +1,20 @@
 <?php
 // Initialize the session
 session_start();
+// var_dump($_SESSION);
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["user"]) && $_SESSION["user"] === true){
-    header("location: panel/index.php");
-    exit;
+if(isset($_SESSION["user"]) && $_SESSION["user"] === true && $_SESSION['level'] == 'admin'){
+  echo '<script language="javascript">alert("Kamu Sudah Login!");document.location="admin/index.php";</script>';
 }
- 
+if(isset($_SESSION["user"]) && $_SESSION["user"] === true && $_SESSION['level'] == 'user'){
+  echo '<script language="javascript">alert("Kamu Sudah Login!");document.location="panel/index.php";</script>';
+}
 // Include config file
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $fname = $email = $nim = "";
+$username = $password = $fname = $email = $nim = $level = "";
 $username_err = $password_err = "";
  
 // Processing form data when form is submitted
@@ -35,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id_users, username, password, fname, email, nim FROM users WHERE username = ?";
+        $sql = "SELECT id_users, username, password, fname, email, nim, level FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($mysqli, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -46,17 +48,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+                // session_unset();
+                // session_destroy();
                 // Store result
                 mysqli_stmt_store_result($stmt);
                 
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id_users, $username, $hashed_password, $fname, $email, $nim);
+                    mysqli_stmt_bind_result($stmt, $id_users, $username, $hashed_password, $fname, $email, $nim, $level);
                     if(mysqli_stmt_fetch($stmt)){
                         if(md5($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
+                            // session_unset();
+                            // session_destroy();
+
+                            // session_start();
+                            // var_dump($_SESSION["level"]);
                             
                             // Store data in session variables
                             $_SESSION["user"] = true;
@@ -66,11 +74,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["email"]    = $email;
                             $_SESSION["fname"]    = $fname;
                             $_SESSION["nim"]      = $nim;
+                            $_SESSION["level"]    = $level;
                             // $_SESSION["user"] = $user;
                             // $_SESSION["NIM"] = $NIM;
+                            var_dump($_SESSION);
                             
                             // Redirect user to welcome page
-                            header("location: panel/index.php");
+                            if($level == "user"){
+                             header ("Location: panel/index.php");
+                             // exit();
+                            } else if($level == "admin") {
+                              header ("Location: admin/index.php");
+                            }
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

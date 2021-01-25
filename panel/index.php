@@ -2,13 +2,14 @@
 // Initialize the session
 session_start();
  
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(!(isset($_SESSION['user']) && $_SESSION['user'] != '')){
-    header ("Location: ../login.php");
-}
  
 // Include config file
 require_once "../config.php";
+
+// level checker
+if($_SESSION['level'] != 'user'){
+  echo '<script language="javascript"> alert("Silahkan Login Sebagai User"); document.location="../admin/index.php";</script>';
+}
 
 ?>
 <!DOCTYPE html>
