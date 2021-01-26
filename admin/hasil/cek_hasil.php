@@ -26,7 +26,7 @@
               <?php 
               $username   = $_GET['username'];
               ?>
-              <a href="index.php?hal=cetak_hasil&username=<?php echo $username?>">
+              <a href="hasil/cetak_hasil.php?username=<?php echo $username?>">
               <input type="button" value="Cetak" class="btn btn-success " name="">
               </a>
 

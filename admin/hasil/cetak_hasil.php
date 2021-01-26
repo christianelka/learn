@@ -1,6 +1,6 @@
 <?php
 $username  = $_GET['username'];
-require_once "../../config.php";
+include "../../config.php";
 $hasil=mysqli_query($mysqli,"SELECT * FROM hasil WHERE username='$_GET[username]'");
 
 $content = '
@@ -31,8 +31,6 @@ $content .= '
                   <th>Nilai</th>
                   <th>Status</th>
                   <th>Tanggal</th>
-                  <th>Waktu Mulai</th>
-                  <th>Waktu Selesai</th>
 				</tr>';
 			$no = 0;
 			while($row = mysqli_fetch_assoc($hasil) ){ 
@@ -46,8 +44,6 @@ $content .= '
 						<td>'.$row["nilai"] .'</td>
 						<td>'.$row["status"] .'</td>
 						<td>'.$row["tanggal"] .'</td>
-						<td>'.$row["waktu_mulai"] .'</td>
-						<td>'.$row["waktu_selesai"] .'</td>
 					</tr>
 				';
 			}

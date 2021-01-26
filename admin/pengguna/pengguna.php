@@ -45,7 +45,7 @@
 <?php
 include "koneksi.php";
 $hasil=mysqli_query($mysqli,"select * from users");
-$no=0;
+$no=1;
 while($row=mysqli_fetch_array($hasil)){
 ?>
                 <tr>
