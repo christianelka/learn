@@ -28,16 +28,15 @@
               </a>
 
               <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4' style="float: right;">
-                
+                  <form method="POST">
                   <div class='input-group'>
-                    <input class='form-control' type='text' name='search' placeholder='Cari Sesuatu' />
+                    <input type='text' class='form-control' name='kata' placeholder='Cari Sesuatu' />
                     <span class="input-group-btn">
-                      <button type='submit' class='btn btn-info'>
-                        <span class='fa fa-search'></span>
-                      </button>
+                      <input type='submit' class='btn btn-info' name="cari" value="Cari">
                     </span>
 
                   </div>
+                </form>
 
               </div>
 
@@ -64,27 +63,51 @@
                 </thead>
                 <tbody>
 <?php
-include "koneksi.php";
-$hasil=mysqli_query($mysqli,"select * from hasil");
-$no=0;
-while($row=mysqli_fetch_array($hasil)){
+if(!ISSET($_POST['cari'])){
+
+$sql = "SELECT * FROM hasil";
+$query = mysqli_query($mysqli, $sql);
+while ($row = mysqli_fetch_array($query)){
+
 ?>
-                <tr>
-                  <!-- <td><?php echo $no; $no++;?></td> -->
-                  <td><?php echo $row['latihan_ke']?></td>
-                  <td><?php echo $row['username']?></td>
-                  <td><?php echo $row['id_soal']?></td>
-                  <td><?php echo mb_strimwidth($row['soal'], 0, 200, "...")?></td>
-                  <td><?php echo mb_strimwidth($row['user_summary'], 0, 200, "...")?></td>
-                  <td><?php echo mb_strimwidth($row['bot_summary'], 0, 200, "...")?></td>
-                  <td><?php echo $row['nilai']?></td>
-                  <td><?php echo $row['status']?></td>
-                  <td><?php echo $row['tanggal']?></td>
-                  <td><?php echo $row['waktu_mulai']?></td>
-                  <td><?php echo $row['waktu_selesai']?></td>
-                  
-                </tr>
-<?php } ?>
+            <tr>
+              <td><?php echo $row['latihan_ke']?></td>
+              <td><?php echo $row['username']?></td>
+              <td><?php echo $row['id_soal']?></td>
+              <td><?php echo mb_strimwidth($row['soal'], 0, 200, "...")?></td>
+              <td><?php echo mb_strimwidth($row['user_summary'], 0, 200, "...")?></td>
+              <td><?php echo mb_strimwidth($row['bot_summary'], 0, 200, "...")?></td>
+              <td><?php echo $row['nilai']?></td>
+              <td><?php echo $row['status']?></td>
+              <td><?php echo $row['tanggal']?></td>
+              <td><?php echo $row['waktu_mulai']?></td>
+              <td><?php echo $row['waktu_selesai']?></td>
+            </tr>
+
+<?php } } ?>
+
+<?php if (ISSET($_POST['cari'])){
+ $cari = $_POST['kata'];
+ $query2 = "SELECT * FROM hasil WHERE soal LIKE '%$cari%' OR user_summary LIKE '%$cari%'";
+ 
+ $sql = mysqli_query($mysqli, $query2);
+ while ($r = mysqli_fetch_array($sql)){
+  ?>
+<tr>
+ <td><?php echo $r['latihan_ke']?></td>
+              <td><?php echo $r['username']?></td>
+              <td><?php echo $r['id_soal']?></td>
+              <td><?php echo mb_strimwidth($r['soal'], 0, 200, "...")?></td>
+              <td><?php echo mb_strimwidth($r['user_summary'], 0, 200, "...")?></td>
+              <td><?php echo mb_strimwidth($r['bot_summary'], 0, 200, "...")?></td>
+              <td><?php echo $r['nilai']?></td>
+              <td><?php echo $r['status']?></td>
+              <td><?php echo $r['tanggal']?></td>
+              <td><?php echo $r['waktu_mulai']?></td>
+              <td><?php echo $r['waktu_selesai']?></td>
+</tr>  
+ <?php }} ?>
+
                 </tfoot>
               </table>
             </div>
