@@ -1,6 +1,6 @@
 <?php
 include("../koneksi.php");
-$sql="delete from users where id_users='$_GET[id]'";
+$sql="DELETE FROM users WHERE id_users='$_GET[id]'";
 $query=mysqli_query($mysqli,$sql);
 if ($query) {
 	header("location:../index.php?hal=pengguna&pesan=berhasil_hapus");

@@ -1,7 +1,6 @@
 <?php
-$username  = $_GET['username'];
-include "../../config.php";
-$hasil=mysqli_query($mysqli,"SELECT * FROM hasil WHERE username='$_GET[username]'");
+require_once "../../config.php";
+$hasil=mysqli_query($mysqli,"SELECT * FROM raw_data");
 
 $content = '
 	<style type="text/css">
@@ -15,35 +14,31 @@ $content .= '
 	<page>
 
 		<div style="padding:10px; background:#2196f3; color:#fff; text-align:center;">
-			<span>LAPORAN HASIL LATIHAN</span>
+			<span>LAPORAN DAFTAR SOAL</span>
 		</div>
 		<div style="padding:15px; text-align:center;">
-			<span>DATA HASIL LATIHAN</span>
+			<span>DAFTAR SOAL</span>
 		</div>
 		
 		<div style="width:100%;">
 			<table align="center" border="1px" class="tabel" style="width:100%;" >
 				<tr>
-				  <th>No</th>         
-                  <th>Username</th>
-                  <th>Latihan Ke</th>
-                  <th>ID Soal</th>
-                  <th>Nilai</th>
-                  <th>Status</th>
-                  <th>Tanggal</th>
+				  <th>ID Soal</th>
+                  <th>Isi Soal</th>
+                  <th>Jawaban</th>
+                  <th>Level</th>
+                  <th>Kode Soal</th>
 				</tr>';
 			$no = 0;
 			while($row = mysqli_fetch_assoc($hasil) ){ 
 			$no++;
 				$content .= '
 					<tr>
-						<td>'. $no .'</td>
-						<td>'.$row["username"].'</td>
-						<td>'.$row["latihan_ke"].'</td>
-						<td>'.$row["id_soal"] .'</td>
-						<td>'.$row["nilai"] .'</td>
-						<td>'.$row["status"] .'</td>
-						<td>'.$row["tanggal"] .'</td>
+						<td>'.$row["id_soal"].'</td>
+						<td>'.mb_strimwidth($row['isi_soal'], 0, 20, "...").'</td>
+						<td>'.mb_strimwidth($row['answer'], 0, 20, "...").'</td>
+						<td>'.$row["level"] .'</td>
+						<td>'.$row["kode_soal"] .'</td>
 					</tr>
 				';
 			}

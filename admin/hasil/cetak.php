@@ -14,10 +14,10 @@ $content .= '
 	<page>
 
 		<div style="padding:10px; background:#2196f3; color:#fff; text-align:center;">
-			<span>LAPORAN DAFTAR PENGGUNA</span>
+			<span>LAPORAN HASIL LATIHAN</span>
 		</div>
 		<div style="padding:15px; text-align:center;">
-			<span>DATA PENGGUNA</span>
+			<span>DATA HASIL LATIHAN</span>
 		</div>
 		
 		<div style="width:100%;">

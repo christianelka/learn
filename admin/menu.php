@@ -26,6 +26,12 @@
             <i class="fa fa-book"></i> <span>Hasil Latihan</span>
           </a>
         </li>
+
+        <li>
+          <a href="index.php?hal=soal">
+            <i class="fa fa-edit"></i> <span>Daftar Soal</span>
+          </a>
+        </li>
         
       </ul>
     </section>

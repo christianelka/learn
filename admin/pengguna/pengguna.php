@@ -24,7 +24,10 @@
               <input type="button" value="Tambah" class="btn btn-primary" name="">
               </a>
               <a href="pengguna/cetak.php">
-              <input type="button" value="Cetak" class="btn btn-success " name="">
+              <input type="button" value="Cetak PDF" class="btn btn-warning " name="">
+              </a>
+              <a href="pengguna/export.php">
+              <input type="button" value="Cetak Excel" class="btn btn-success " name="">
               </a>
             </div>
             <!-- /.box-header -->
@@ -44,7 +47,7 @@
                 <tbody>
 <?php
 include "koneksi.php";
-$hasil=mysqli_query($mysqli,"select * from users");
+$hasil=mysqli_query($mysqli,"SELECT * FROM users");
 $no=1;
 while($row=mysqli_fetch_array($hasil)){
 ?>

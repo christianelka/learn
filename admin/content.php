@@ -17,17 +17,27 @@
         elseif ($_GET['hal'] == 'cari') {
           include "hasil/hasil.php";
         }
-        elseif ($_GET['hal'] == 'tambah_hasil') {
-          include "hasil/tambah_hasil";
-        }
-        elseif ($_GET['hal'] == 'edit_hasil') {
-          include "hasil/edit_hasil";
-        }
         elseif ($_GET['hal'] == 'cek_hasil') {
           include "hasil/cek_hasil.php";
         }
         elseif ($_GET['hal'] == 'cetak_hasil') {
           include "hasil/cetak_hasil.php";
+        }
+
+        elseif ($_GET['hal'] == 'soal') {
+          include "soal/soal.php";
+        }
+        elseif ($_GET['hal'] == 'cari_soal') {
+          include "soal/soal.php";
+        }
+        elseif ($_GET['hal'] == 'tambah_soal') {
+          include "soal/tambah_soal.php";
+        }
+        elseif ($_GET['hal'] == 'edit_soal') {
+          include "soal/edit_soal.php";
+        }
+        elseif ($_GET['hal'] == 'cetak_soal') {
+          include "soal/cetak.php";
         }
 
         else

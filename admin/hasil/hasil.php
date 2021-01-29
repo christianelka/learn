@@ -24,7 +24,10 @@
               <input type="button" value="Tambah" class="btn btn-primary" name="">
               </a> -->
               <a href="hasil/cetak.php">
-              <input type="button" value="Cetak" class="btn btn-success " name="">
+              <input type="button" value="Cetak PDF" class="btn btn-warning " name="">
+              </a>
+              <a href="hasil/export.php">
+              <input type="button" value="Cetak Excel" class="btn btn-success " name="">
               </a>
 
               <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4' style="float: right;">
