@@ -40,6 +40,10 @@
           include "soal/cetak.php";
         }
 
+        elseif ($_GET['hal'] == 'analisa') {
+          include "analisa/analisa.php";
+        }
+
         else
         {
           include "home.php";

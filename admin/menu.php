@@ -32,6 +32,12 @@
             <i class="fa fa-edit"></i> <span>Daftar Soal</span>
           </a>
         </li>
+
+        <li>
+          <a href="index.php?hal=analisa">
+            <i class="fa fa-bar-chart"></i> <span>Analisa Level</span>
+          </a>
+        </li>
         
       </ul>
     </section>
