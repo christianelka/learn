@@ -54,8 +54,9 @@
                   <th>Username</th>
                   <th>Latihan Ke</th>         
                   <th>ID Soal</th>
-                  <th>Level</th>
+                  <th>Nilai</th>
                   <th>Tanggal</th>
+                  <th>Waktu Pengerjaan</th>
                   <th>Next Level</th>
                 </tr>
                 </thead>
@@ -72,9 +73,11 @@ while ($row = mysqli_fetch_array($query)){
               <td><?php echo $row['username']?></td>              
               <td><?php echo $row['latihan_ke']?></td>
               <td><?php echo $row['id_soal']?></td>
-              <td><?php echo $row['level']?></td>
+              <td><?php echo $row['nilai']?></td>
               <td><?php echo $row['tanggal']?></td>
-              <td>Next Level?</td>
+              <td><?php echo $row['waktu_huruf']?></td>
+              <td><?php echo $row['next_level']?></td>
+              <!-- <td>Next Level?</td> -->
             </tr>
 
 <?php } } ?>
@@ -90,9 +93,10 @@ while ($row = mysqli_fetch_array($query)){
               <td><?php echo $r['username']?></td>              
               <td><?php echo $r['latihan_ke']?></td>
               <td><?php echo $r['id_soal']?></td>
-              <td><?php echo $r['level']?></td>
+              <td><?php echo $r['nilai']?></td>
               <td><?php echo $r['tanggal']?></td>
-              <td>Next Level?</td>
+              <td><?php echo $r['waktu_huruf']?></td>
+              <td><?php echo $r['next_level']?></td>
             </tr>  
  <?php }} ?>
 

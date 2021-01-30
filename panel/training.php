@@ -16,6 +16,9 @@
     $id = $_POST['id_soal'];
     $command = "python update.py $id $NIM";
     $output = shell_exec($command);
+
+    $fornb = shell_exec("python nbtraining.py");
+
     var_dump("Ini bagian Output " .$output);
     var_dump("Ini id terakhir " .$id_terakhir);
 

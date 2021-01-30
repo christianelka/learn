@@ -116,6 +116,9 @@ require_once "../config.php";
                 }
                 // $status = $row['status'];
 
+                // $query1 = "UPDATE hasil SET waktu_huruf = $kode_waktu, nilai_huruf = $score";
+                // $result = $mysqli->query($query1);
+
                 if ($status == "Failed") {
                   ?>
                   <div class="col-lg-12 col-sm-6" >
