@@ -43,31 +43,13 @@ if(isset($_POST['mulai'])){
   $result_1 = mysqli_query($mysqli, $query_1);
   // var_dump($result_1);
 
-  $query_3 = "SELECT next_level FROM hasil WHERE username = '$NIM' ORDER BY id DESC LIMIT 1" ;
-  $result_3 = mysqli_query($mysqli, $query_3);
-
-  if(mysqli_num_rows($result_3) > 0){
-    while($row3 = $result_3 -> fetch_assoc()){
-      $level_soal = $row3['next_level'];
-    }
-  }
-
-  $query_4 = "SELECT id_soal FROM raw_data WHERE level = '$level_soal' ORDER BY RAND() LIMIT 1";
-  $result_4 = mysqli_query($mysqli, $query_4);
-
-  if(mysqli_num_rows($result_4) > 0){
-    while($row4 = $result_4 -> fetch_assoc()){
-      $soal_id = $row4['id_soal'];
-    }
-  }
-
   if (mysqli_num_rows($result_1) > 0){
     $num_rows = mysqli_num_rows($result_1);
     if (!isset($_SESSION["id"])){
     // $id=rand(1,$num_rows);
-      $_SESSION["id"] = $soal_id;
+      $_SESSION["id"] = rand(1,$num_rows);
     }
-    $id = $soal_id;
+    $id = $_SESSION["id"];
     // var_dump($id);
     // echo $id;
     $query_2 = "SELECT isi_soal, level FROM raw_data WHERE id_soal = $id";
