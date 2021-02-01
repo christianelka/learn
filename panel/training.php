@@ -41,11 +41,9 @@ if(isset($_POST['mulai'])){
   $waktu_mulai = date('Y-m-d H:i:s');  
   $query_1 = "SELECT * FROM raw_data";
   $result_1 = mysqli_query($mysqli, $query_1);
-  // var_dump($result_1);
 
   $query_3 = "SELECT next_level FROM hasil WHERE username = '$NIM' ORDER BY id DESC LIMIT 1" ;
   $result_3 = mysqli_query($mysqli, $query_3);
-
   if(mysqli_num_rows($result_3) > 0){
     while($row3 = $result_3 -> fetch_assoc()){
       $level_soal = $row3['next_level'];
@@ -54,7 +52,6 @@ if(isset($_POST['mulai'])){
 
   $query_4 = "SELECT id_soal FROM raw_data WHERE level = '$level_soal' ORDER BY RAND() LIMIT 1";
   $result_4 = mysqli_query($mysqli, $query_4);
-
   if(mysqli_num_rows($result_4) > 0){
     while($row4 = $result_4 -> fetch_assoc()){
       $soal_id = $row4['id_soal'];
@@ -68,8 +65,6 @@ if(isset($_POST['mulai'])){
       $_SESSION["id"] = $soal_id;
     }
     $id = $soal_id;
-    // var_dump($id);
-    // echo $id;
     $query_2 = "SELECT isi_soal, level FROM raw_data WHERE id_soal = $id";
     $result_2 = mysqli_query($mysqli, $query_2);
 
@@ -78,7 +73,6 @@ if(isset($_POST['mulai'])){
   if(mysqli_query($mysqli, $query3)){
       $last_id = mysqli_insert_id($mysqli);        
 
-    // var_dump($result_2);
       if ($result_2 = $mysqli -> query($query_2)){        
       // // Fetch one and one row
         while ($row = $result_2 -> fetch_row()) {
@@ -90,8 +84,7 @@ if(isset($_POST['mulai'])){
     }
   }
   }
-  //unset($_SESSION['id']);
-  //header("Refresh:0;url='http://localhost/learn/panel/training.php'");
+  
 ?>
 <!DOCTYPE html>
 <php lang="en">
