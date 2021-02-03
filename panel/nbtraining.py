@@ -3,6 +3,7 @@ from datetime import datetime as dt
 import pandas as pd
 import sklearn
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.naive_bayes import GaussianNB
 
 
 
@@ -56,19 +57,20 @@ def rewritecsv():
 		f.close()
 
 def training():
-	dbase = pd.read_csv("nbtraining.csv")
-	y = dbase["level"]
+	dataset = pd.read_csv("nbtraining.csv")
 
-	pre = ["nilai","waktu","latke"]
-	X = dbase[pre]
+	pre = ['nilai','waktu','latke']
+	X = dataset[pre]
+	y = dataset['level']
 
-	model1 = DecisionTreeRegressor(random_state = 1)
-	model1.fit(X.iloc[:-1],y.iloc[:-1])
+	Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, random_state=0)
 
-	train1 = model1.predict(X.iloc[-1:])
+	model = GaussianNB()
+	model.fit(X.iloc[:-1],y.iloc[:-1])
+
+	train1 = model1.predict(Xtest.iloc[-1:])
 	print(f"{int(train1[-1])} \n ----------------------------- \n {y.iloc[-1:]}")
 
-	# dbase["level"][-1:] = int(train1)
 	return int(train1)
 
 def getID_DB(table):
